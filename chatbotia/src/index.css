@@ -4,6 +4,11 @@
   overflow-y: auto;
 }
 
+.chat_message {
+    margin: 8px;
+    min-width: 28%;
+    max-width: 77%;
+}
 
 /* HTML: <div class="loader"></div> */
 .loader {

@@ -28,7 +28,7 @@ function ChatbotContent() {
     return (
         <div className="container py-4">
             <div className="chat_box_wrapper border rounded shadow p-3" style={{ maxWidth: '400px', margin: 'auto' }}>
-                <div className="d-flex align-items-center mb-3">
+                <div className="d-flex align-items-center mb-3 popup-head">
                     <img src={botimag} className="rounded-circle me-2" alt="User" width="50" />
                     <div>
                         <h5 className="mb-0">ArcoBot</h5>
@@ -44,17 +44,16 @@ function ChatbotContent() {
                 <div className="chat_box mb-3">
                     {
                         ctx.messages.map((msg, index) => (
-                            <div className={`mb-2 ${msg.from === 'user' ? 'text-end' : ''}`} key={index}>
+                            <div className={`mb-2 ${msg.from === 'user' ? 'text-end' : ''} `} key={index}>
                                 <div className={`d-flex ${msg.from === 'user' ? 'flex-row-reverse' : ''}`}>
-                                    <div className={`${msg.from === 'user' ? 'bg-success text-white' : 'bg-light'} rounded p-2`}>
+                                    <div className={`${msg.from === 'user' ? 'bg-success text-white' : 'bg-light'} rounded p-2 chat_message`}>
                                         <p className="mb-1">{msg.text}</p>
-                                        <small className="text-muted">{msg.time}</small>
+                                        <small className="text-muted ">{msg.time}</small>
                                     </div>
                                 </div>
                             </div>
                         ))
                     }
-
                     {
                         ctx.isTyping && (
                             <div className="d-flex">
