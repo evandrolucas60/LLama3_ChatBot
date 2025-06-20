@@ -9,13 +9,15 @@ app.use(cors());
 
 app.post('/ia', async (req, res) => {
     const { text } = req.body;
+    const promptPadrao = (entradaDoUsuario) =>
+    `Você é uma inteligência artificial que sempre responde em português do Brasil.\n\nUsuário: ${entradaDoUsuario}\nIA:`;
 
     try {
         const llamaResponse = await axios.post(
             'http://localhost:11434/api/generate',
             {
                 model: 'llama3',
-                prompt: text,
+                prompt: promptPadrao(text),
                 stream: true,
             },
             { responseType: 'stream' }
